@@ -56,11 +56,7 @@ namespace TargMasini
                         Console.WriteLine("INTRODUCETI DATA VANZARII SUB FORMA (ZZ.LL.AAAA): ");
                         vanzare.DataVanzare = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
                         break;
-                    //case "A":
-                    //    string infoStudent = student.Info();
-                    //    Console.WriteLine("Studentul {0}", infoStudent);
-
-                    //    break;
+                  
                     case "F":
                         MasinaClass[] vanzari = adminVanzari.GetTranzactii(nrVanzari);
                         foreach (MasinaClass masina in vanzari)
@@ -71,26 +67,8 @@ namespace TargMasini
 
                     case "S":
                         adminVanzari.AddTranzactie(vanzare);
-                        //adaugare student in fisier
-                        //adminTelefon.AddTelefon(phone);
+                       
                         break;
-                    //case "C":
-                    //    Console.WriteLine($"Introdu numele studentului");
-                    //    nume = Console.ReadLine();
-                    //    Console.WriteLine($"Introdu prenume studentului");
-                    //    prenume = Console.ReadLine();
-                    //    var cautatul = adminStudenti.FindStudent(nume, prenume);
-                    //    if (cautatul != null)
-                    //    {
-                    //        Console.WriteLine($"Studentul {cautatul.GetPrenume()} {cautatul.GetNume()} cu id-ul #{cautatul.GetIdStudent()} a fost gasit");
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("Studentul nu a fost gasit");
-                    //    }
-
-
-                    // break;
                     case "X":
                         return;
                     default:

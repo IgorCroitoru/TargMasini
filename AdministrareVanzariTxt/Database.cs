@@ -20,10 +20,7 @@ namespace AdministrareVanzariTxt
             {
                 // daca fisierul nu exista atunci il cream si si adaugam
                 // o linie noua tu toate datele care vor fi pe coloane in caz ca il convertim
-                //la fisier csv/excel
-                //Stream streamFisierText = File.Open(numeFisier, FileMode.OpenOrCreate);
-               // streamFisierText.Close();
-
+              
                 using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
                 {
                     streamWriterFisierText.WriteLine("IDtranzactie;Firma;Model;AnFabricatie;Culoare;Optiuni;NumeCumparator;NumeVanzator;Pret;DataVanzare");
