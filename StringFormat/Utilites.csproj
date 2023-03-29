@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7F175BF7-A65C-41B4-9673-4D8AD3E63613}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TargMasini</RootNamespace>
-    <AssemblyName>TargMasini</AssemblyName>
+    <ProjectGuid>{8CADF0E0-CBD3-42FC-8185-498882E7142C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StringFormat</RootNamespace>
+    <AssemblyName>StringFormat</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,25 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ClassFilter.cs" />
+    <Compile Include="String.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AdministrareVanzariTxt\AdministrareVanzariTxt.csproj">
-      <Project>{fd2a8191-026d-478b-987b-08e9ad2ddce0}</Project>
-      <Name>AdministrareVanzariTxt</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Masina\Masina.csproj">
-      <Project>{d87f4edf-3955-49e6-a620-b2f4b09b6b08}</Project>
-      <Name>Masina</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StringFormat\Utilites.csproj">
-      <Project>{8cadf0e0-cbd3-42fc-8185-498882e7142c}</Project>
-      <Name>Utilites</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

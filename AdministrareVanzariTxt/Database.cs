@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,12 @@ namespace AdministrareVanzariTxt
             {
                 // daca fisierul nu exista atunci il cream si si adaugam
                 // o linie noua tu toate datele care vor fi pe coloane in caz ca il convertim
-              
+
                 using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
                 {
-                    streamWriterFisierText.WriteLine("IDtranzactie;Firma;Model;AnFabricatie;Culoare;Optiuni;NumeCumparator;NumeVanzator;Pret;DataVanzare");
+                    // putem folosi linia de mai jos in caz ca vrem sa convertim fisierul la unul csv sau excel 
+                    // si sa avem denumirile coloanelor
+                    /// streamWriterFisierText.WriteLine("IDtranzactie;Firma;Model;AnFabricatie;Culoare;Optiuni;NumeCumparator;NumeVanzator;Pret;DataVanzare");
 
                 }
             }
@@ -32,7 +35,7 @@ namespace AdministrareVanzariTxt
         public void AddTranzactie(MasinaClass masina)
         {
             // instructiunea 'using' va apela la final streamWriterFisierText.Close();
-            
+
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
             {
                 if (masina.GetIDtranzactie() != 0)
@@ -57,17 +60,46 @@ namespace AdministrareVanzariTxt
                     {
                         tranzactii[contor++] = new MasinaClass(linieFisier);
                     }
-                    catch (Exception e) 
+                    catch (Exception e)
                     {
                         contor--;
                         Console.WriteLine("Error: {0}", e.Message);
                     }
-                    //tranzactii[contor++] = new MasinaClass(linieFisier);
+                   
                 }
             }
 
-
             return tranzactii;
+        }
+
+        public IEnumerable<MasinaClass> Search(Func<MasinaClass, bool> predicate)
+        {
+            {
+                MasinaClass[] vanzari = GetTranzactii(File.ReadAllLines(numeFisier).Length);
+                foreach (MasinaClass masina in vanzari)
+                {
+                    if (predicate(masina))
+                    {
+                        yield return masina;
+                    }
+                }
+
+            }
+        }
+
+        public void PrintVanzari(IEnumerable<MasinaClass> masini)
+        {
+            if (masini.Count() == 0)
+            {
+                Console.WriteLine("Nu au fost gasite vanzari dupa parametrii propusi");
+            }
+            else 
+            {
+                foreach (MasinaClass masina in masini)
+                {
+                    Console.WriteLine(masina);
+                }
+            }
         }
     }
     
