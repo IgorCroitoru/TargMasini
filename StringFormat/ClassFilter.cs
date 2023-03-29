@@ -18,6 +18,8 @@ namespace ClassFilter
         public string NumeCumparator { set; get; }
         public string NumeVanzator { set; get; }
         public float Pret { set; get; }
+        public float PretDela {set; get; }
+        public float PretPanala { set; get; }
         public DateTime DataFrom { set; get; }
         public DateTime DataTo { set; get; }
     }

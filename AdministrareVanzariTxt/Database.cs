@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Reflection;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace AdministrareVanzariTxt
                 {
                     // putem folosi linia de mai jos in caz ca vrem sa convertim fisierul la unul csv sau excel 
                     // si sa avem denumirile coloanelor
-                    /// streamWriterFisierText.WriteLine("IDtranzactie;Firma;Model;AnFabricatie;Culoare;Optiuni;NumeCumparator;NumeVanzator;Pret;DataVanzare");
+                    // streamWriterFisierText.WriteLine("IDtranzactie;Firma;Model;AnFabricatie;Culoare;Optiuni;NumeCumparator;NumeVanzator;Pret;DataVanzare");
 
                 }
             }
@@ -44,13 +45,16 @@ namespace AdministrareVanzariTxt
                 }
             }
         }
-        public MasinaClass[] GetTranzactii(int nrVanz)
+
+       
+
+        public List<MasinaClass> GetTranzactii()
         {
-            MasinaClass[] tranzactii = new MasinaClass[nrVanz];
+            List<MasinaClass> tranzactii = new List<MasinaClass>();
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
-                int contor = 0;
+                
 
                 // citeste cate o linie si creaza un obiect de tip Student
                 // pe baza datelor din linia citita
@@ -58,14 +62,13 @@ namespace AdministrareVanzariTxt
                 {
                     try
                     {
-                        tranzactii[contor++] = new MasinaClass(linieFisier);
+                        tranzactii.Add(new MasinaClass(linieFisier));
                     }
                     catch (Exception e)
                     {
-                        contor--;
                         Console.WriteLine("Error: {0}", e.Message);
                     }
-                   
+
                 }
             }
 
@@ -75,7 +78,7 @@ namespace AdministrareVanzariTxt
         public IEnumerable<MasinaClass> Search(Func<MasinaClass, bool> predicate)
         {
             {
-                MasinaClass[] vanzari = GetTranzactii(File.ReadAllLines(numeFisier).Length);
+                List<MasinaClass> vanzari = GetTranzactii();
                 foreach (MasinaClass masina in vanzari)
                 {
                     if (predicate(masina))
@@ -101,6 +104,23 @@ namespace AdministrareVanzariTxt
                 }
             }
         }
+        //FUNCTIE PENTRU A MODIFICA DATELE IN FISIER
+        public void UpdateProperty(List<MasinaClass> changes, int id_del, object new_value, string property_name)
+        {
+            foreach (MasinaClass masina in changes)
+            {
+                if (masina.IDtranzactie == id_del)
+                {
+                    // Get the type of MasinaClass and get the PropertyInfo object for the specified property name
+                    Type type = typeof(MasinaClass);
+                    PropertyInfo propInfo = type.GetProperty(property_name);
+
+                    // Set the value of the property to the new value
+                    propInfo.SetValue(masina, new_value);
+                }
+            }
+        }
+
     }
-    
+
 }
