@@ -1,12 +1,8 @@
-﻿using Microsoft.Win32;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
+
+using Modele;
 
 namespace Masina
 {
@@ -28,7 +24,7 @@ namespace Masina
         public string Firma { set; get; }
         public string Model { set; get; }
         public int AnFabricatie { set; get; }
-        public string Culoare { set; get; }
+        public CuloareEnum Culoare { set; get; }
         public string Optiuni { set; get; }
         public string NumeCumparator { set; get; }
         public string NumeVanzator { set; get; }
@@ -46,7 +42,8 @@ namespace Masina
             Firma = dateFisier[FIRMA];
             Model = dateFisier[MODEL];
             AnFabricatie = Convert.ToInt32(dateFisier[ANFABRICATIE]);
-            Culoare = dateFisier[CULOARE];
+            //DACA IN FISIER AVEM CULOAREA SCRISA CU LITERE MICI SAU DIMENSIUNEA LOR E DIFERITA DE CEA DIN ENUMERARE ATUNCI O TRANSFORMAM
+            Culoare = (CuloareEnum)Enum.Parse(typeof(CuloareEnum), dateFisier[CULOARE].Substring(0, 1).ToUpper() + dateFisier[CULOARE].Substring(1).ToLower());
             Optiuni = dateFisier[OPTIUNI];
             NumeCumparator = dateFisier[NUMECUMPARATOR];
             NumeVanzator = dateFisier[NUMEVANZATOR];
@@ -68,7 +65,7 @@ namespace Masina
                 (IDtranzactie.ToString() ?? "0"),
                 (Firma ?? "NECUNOSCUT"),
                 (Model ?? "NECUNOSCUT"),
-                (Culoare ?? "NECUNOSCUT"),
+                (Culoare.ToString() ?? "NECUNOSCUT"),
                 (AnFabricatie.ToString() ?? "NECUNOSCUT"),
                 (Optiuni ?? "NECUNOSCUT"),
                 (NumeCumparator ?? "NECUNOSCUT"),

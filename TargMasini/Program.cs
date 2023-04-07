@@ -7,6 +7,7 @@ using System.Globalization;
 using StringFormat;
 using ClassFilter;
 using System.Net.Mail;
+using Modele;
 
 namespace TargMasini
 {
@@ -20,7 +21,7 @@ namespace TargMasini
             Filter filtru = new Filter();
             int nrVanzari = File.ReadAllLines(numeFisier).Length;
 
-            //doua variabile de tip data care le vom folosi la cautarea vanzarilor
+            
            
 
             string optiune;
@@ -49,7 +50,7 @@ namespace TargMasini
                         Console.WriteLine("INTRODUCETI ANUL FABRICARII: ");
                         vanzare.AnFabricatie = int.Parse(Console.ReadLine());
                         Console.WriteLine("INTRODUCETI CULOAREA: ");
-                        vanzare.Culoare = Console.ReadLine();
+                        vanzare.Culoare = (CuloareEnum)Enum.Parse(typeof(CuloareEnum), Console.ReadLine());
                         Console.WriteLine("INTRODUCETI ALTE OPTIUNI ALE MASINII: ");
                         vanzare.Optiuni = Console.ReadLine();
                         Console.WriteLine("INTRODUCETI NUMELE COMPLET AL CUMPARATORULUI: ");
@@ -164,7 +165,8 @@ namespace TargMasini
 
                                     //cream o copie a a listei cu vanzari 
 
-                                    List<MasinaClass> changes = new List<MasinaClass>(vanzari);
+                                    List<MasinaClass> changes = new List<MasinaClass>();
+                                    changes.AddRange(vanzari);
                                     foreach (MasinaClass masina in vanzari)
                                     {
                                         Console.WriteLine(masina);
@@ -219,8 +221,8 @@ namespace TargMasini
                                                 break;
                                             case "4":
                                                 Console.WriteLine("Introduceti culoarea noua a masinii");
-                                                string culoare = Console.ReadLine();
-                                                adminVanzari.UpdateProperty(changes, id_del, culoare, "Culoare");
+                                                CuloareEnum Culoare = (CuloareEnum)Enum.Parse(typeof(CuloareEnum),Console.ReadLine());
+                                                adminVanzari.UpdateProperty(changes, id_del,Culoare, "Culoare");
 
                                                 break;
                                             case "5":
@@ -252,7 +254,7 @@ namespace TargMasini
                                             case "S":
                                                 //SALVAM DATELE
                                                 File.WriteAllText(numeFisier, "");
-                                                foreach (MasinaClass masina in vanzari)
+                                                foreach (MasinaClass masina in changes)
                                                 {
                                                     adminVanzari.AddTranzactie(masina);
                                                 }

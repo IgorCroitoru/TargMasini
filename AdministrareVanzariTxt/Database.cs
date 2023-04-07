@@ -111,11 +111,9 @@ namespace AdministrareVanzariTxt
             {
                 if (masina.IDtranzactie == id_del)
                 {
-                    // Get the type of MasinaClass and get the PropertyInfo object for the specified property name
                     Type type = typeof(MasinaClass);
                     PropertyInfo propInfo = type.GetProperty(property_name);
 
-                    // Set the value of the property to the new value
                     propInfo.SetValue(masina, new_value);
                 }
             }
