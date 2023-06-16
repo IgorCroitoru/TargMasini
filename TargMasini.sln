@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdministrareVanzariTxt", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilites", "StringFormat\Utilites.csproj", "{8CADF0E0-CBD3-42FC-8185-498882E7142C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms.Net6", "PagPrincipala\Forms.Net6.csproj", "{D3A24915-5215-4310-8E9F-78E6986F58A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formsuri", "Formsuri\Formsuri.csproj", "{78EC6DCE-56AD-45F0-AEB5-8E4C6065A4B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{8CADF0E0-CBD3-42FC-8185-498882E7142C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CADF0E0-CBD3-42FC-8185-498882E7142C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CADF0E0-CBD3-42FC-8185-498882E7142C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A24915-5215-4310-8E9F-78E6986F58A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A24915-5215-4310-8E9F-78E6986F58A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A24915-5215-4310-8E9F-78E6986F58A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A24915-5215-4310-8E9F-78E6986F58A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78EC6DCE-56AD-45F0-AEB5-8E4C6065A4B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78EC6DCE-56AD-45F0-AEB5-8E4C6065A4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78EC6DCE-56AD-45F0-AEB5-8E4C6065A4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78EC6DCE-56AD-45F0-AEB5-8E4C6065A4B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

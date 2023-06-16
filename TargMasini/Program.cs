@@ -50,7 +50,7 @@ namespace TargMasini
                         Console.WriteLine("INTRODUCETI ANUL FABRICARII: ");
                         vanzare.AnFabricatie = int.Parse(Console.ReadLine());
                         Console.WriteLine("INTRODUCETI CULOAREA: ");
-                        vanzare.Culoare = (CuloareEnum)Enum.Parse(typeof(CuloareEnum), Console.ReadLine());
+                        vanzare.Culoare = Console.ReadLine();
                         Console.WriteLine("INTRODUCETI ALTE OPTIUNI ALE MASINII: ");
                         vanzare.Optiuni = Console.ReadLine();
                         Console.WriteLine("INTRODUCETI NUMELE COMPLET AL CUMPARATORULUI: ");
@@ -221,8 +221,8 @@ namespace TargMasini
                                                 break;
                                             case "4":
                                                 Console.WriteLine("Introduceti culoarea noua a masinii");
-                                                CuloareEnum Culoare = (CuloareEnum)Enum.Parse(typeof(CuloareEnum),Console.ReadLine());
-                                                adminVanzari.UpdateProperty(changes, id_del,Culoare, "Culoare");
+                                                string culoare = Console.ReadLine();
+                                                adminVanzari.UpdateProperty(changes, id_del,culoare, "Culoare");
 
                                                 break;
                                             case "5":

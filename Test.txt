@@ -1,0 +1,15 @@
+1;Bmw;X3;Alb;2012;culoare metalizata, scaune incalzite, navigatie;Andrei Popescu;Mihai Georgescu;20000;01.01.2002
+2;Audi;A6;Negru;2019;faruri LED, sistem de sunet premium, camera de marsarier;Alexandra Ionescu;Radu Popa;35000;18.03.2023
+3;Mercedes;GLA;Argintiu;2020;sistem de asistenta la parcare, senzori de ploaie, jante de aliaj;Cristina Stoica;Vlad Vasilescu;40000;02.03.2023
+4;Volkswagen;Tiguan;Gri;2015;tractiune integrala, sistem de franare de urgenta, incarcator wireless;Andrei Stanescu;Maria Pop;20000;07.03.2023
+5;Renault;Captur;Rosu;2018;sistem de climatizare automata, geamuri electrice, volan imbracat in piele;Alexandru Tudor;Croitoru Igor;15000;09.03.2023
+6;Renault;Captur;Rosu;2018;sistem de clim`11atizare automata, geamuri electrice, volan imbracat in piele;Alexandru Tudor;Andreea Nicolae;20000;08.06.2023
+7;Audi;A9;Negru;2012;scaune;Nichita Bal;Igor Croitoru;20000;08.06.2023
+8;Ford;Focus;Albastru;2017;sistem de navigatie, controlul tractiunii, senzori de parcare;Adrian Popescu;Elena Ionescu;18000;12.07.2023
+9;Toyota;Corolla;Argintiu;2016;incalzire in scaune, camera video spate, senzori de lumina;Mihai Radu;Ana Maria Vasilescu;16000;25.07.2023
+10;Volvo;XC60;Negru;2019;faruri adaptive LED, sistem audio premium, volan incalzit;Andreea Pop;Radu Stoian;30000;02.08.2023
+11;BMW;320d;Rosu;2018;senzori de parcare fata/spate, sistem de navigatie, interior piele;Catalin Andrei;Andrei Mihai;25000;15.08.2023
+12;Audi;Q5;Alb;2020;faruri Full LED, asistent la schimbarea benzii, display digital;Ioana Popa;Alexandru Gheorghe;38000;21.08.2023
+13;Mercedes;C-Class;Negru;2015;sistem audio Burmester, pilot automat, sistem de franare de urgenta;Ana Maria Radu;Ionut Georgescu;22000;05.09.2023
+14;Volkswagen;Golf;Albastru;2019;sistem de climatizare dual-zone, senzori de ploaie, display touchscreen;Marius Stan;Andrei Popescu;28000;18.09.2023
+15;Renault;Megane;Gri;2021;scaune sport, sistem de asistenta la franare, camera video spate;Maria Popescu;George Ionescu;17000;29.09.2023

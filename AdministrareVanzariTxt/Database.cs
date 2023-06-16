@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace AdministrareVanzariTxt
     public class Database
     {
         private string numeFisier = "Vanzari.txt";
+        private string numeFisier1 = "C:\\Users\\Igor\\source\\repos\\TargMasini\\Test.txt";
 
         public Database(string numeFisier)
         {
@@ -33,11 +35,13 @@ namespace AdministrareVanzariTxt
             }
         }
 
+       
+
         public void AddTranzactie(MasinaClass masina)
         {
             // instructiunea 'using' va apela la final streamWriterFisierText.Close();
 
-            using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
+            using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier1, true))
             {
                 if (masina.GetIDtranzactie() != 0)
                 {
@@ -46,12 +50,12 @@ namespace AdministrareVanzariTxt
             }
         }
 
-       
 
-        public List<MasinaClass> GetTranzactii()
+        
+    public List<MasinaClass> GetTranzactii()
         {
             List<MasinaClass> tranzactii = new List<MasinaClass>();
-            using (StreamReader streamReader = new StreamReader(numeFisier))
+            using (StreamReader streamReader = new StreamReader(numeFisier1))
             {
                 string linieFisier;
                 
@@ -118,6 +122,18 @@ namespace AdministrareVanzariTxt
                 }
             }
         }
+        public int GetLastId()
+        {
+            int id = 0;
+            List<MasinaClass> listMasini = GetTranzactii();
+            if (listMasini.Count > 0)
+            {
+                id = listMasini[listMasini.Count - 1].IDtranzactie;
+                // Use the lastID as needed
+            }
+            return id;
+        }
+
 
     }
 

@@ -24,7 +24,7 @@ namespace Masina
         public string Firma { set; get; }
         public string Model { set; get; }
         public int AnFabricatie { set; get; }
-        public CuloareEnum Culoare { set; get; }
+        public string Culoare { set; get; }
         public string Optiuni { set; get; }
         public string NumeCumparator { set; get; }
         public string NumeVanzator { set; get; }
@@ -43,7 +43,7 @@ namespace Masina
             Model = dateFisier[MODEL];
             AnFabricatie = Convert.ToInt32(dateFisier[ANFABRICATIE]);
             //DACA IN FISIER AVEM CULOAREA SCRISA CU LITERE MICI SAU DIMENSIUNEA LOR E DIFERITA DE CEA DIN ENUMERARE ATUNCI O TRANSFORMAM
-            Culoare = (CuloareEnum)Enum.Parse(typeof(CuloareEnum), dateFisier[CULOARE].Substring(0, 1).ToUpper() + dateFisier[CULOARE].Substring(1).ToLower());
+            Culoare = dateFisier[CULOARE];
             Optiuni = dateFisier[OPTIUNI];
             NumeCumparator = dateFisier[NUMECUMPARATOR];
             NumeVanzator = dateFisier[NUMEVANZATOR];
@@ -65,7 +65,7 @@ namespace Masina
                 (IDtranzactie.ToString() ?? "0"),
                 (Firma ?? "NECUNOSCUT"),
                 (Model ?? "NECUNOSCUT"),
-                (Culoare.ToString() ?? "NECUNOSCUT"),
+                (Culoare ?? "NECUNOSCUT"),
                 (AnFabricatie.ToString() ?? "NECUNOSCUT"),
                 (Optiuni ?? "NECUNOSCUT"),
                 (NumeCumparator ?? "NECUNOSCUT"),
